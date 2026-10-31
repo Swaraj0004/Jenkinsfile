@@ -2,21 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('First Stage') {
+        stage('Hello') {
             steps {
-                echo 'Running on Java agent'
+                echo 'Hello Jenkins!'
             }
         }
 
-        stage('Second Stage') {
+        stage('Build') {
             steps {
-                sh 'java -version'
+                echo 'Building Application'
             }
         }
 
-        stage('Third Stage') {
+        stage('Test') {
             steps {
-                echo 'Pipeline completed successfully!'
+                echo 'Testing Application'
             }
         }
     }
