@@ -1,23 +1,16 @@
 pipeline {
-    agent any
-    
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello Students!'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Building Application'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Testing Application'
-            }
-        }
+  agent any
+  triggers {
+    githubPush()
+  }
+  tools {
+    maven 'maven-3.6.3'
+  }
+  stages {
+    stage ('Build Maven') {
+      steps {
+        sh 'mvn clean package'
+      }
     }
+  }
 }
